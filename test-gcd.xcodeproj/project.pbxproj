@@ -14,6 +14,7 @@
 		CAAFA3E326D2741500A1890C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAAFA3E226D2741500A1890C /* Assets.xcassets */; };
 		CAAFA3E626D2741500A1890C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAAFA3E426D2741500A1890C /* LaunchScreen.storyboard */; };
 		CAAFA3EE26D276BF00A1890C /* PrefetchControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAFA3ED26D276BF00A1890C /* PrefetchControllerViewController.swift */; };
+		CAAFA3F026D2795B00A1890C /* DataQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAFA3EF26D2795B00A1890C /* DataQueue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		CAAFA3E526D2741500A1890C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CAAFA3E726D2741500A1890C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAAFA3ED26D276BF00A1890C /* PrefetchControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefetchControllerViewController.swift; sourceTree = "<group>"; };
+		CAAFA3EF26D2795B00A1890C /* DataQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataQueue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				CAAFA3DD26D2740F00A1890C /* ViewController.swift */,
 				CAAFA3DF26D2740F00A1890C /* Main.storyboard */,
 				CAAFA3ED26D276BF00A1890C /* PrefetchControllerViewController.swift */,
+				CAAFA3EF26D2795B00A1890C /* DataQueue.swift */,
 				CAAFA3E226D2741500A1890C /* Assets.xcassets */,
 				CAAFA3E426D2741500A1890C /* LaunchScreen.storyboard */,
 				CAAFA3E726D2741500A1890C /* Info.plist */,
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAAFA3F026D2795B00A1890C /* DataQueue.swift in Sources */,
 				CAAFA3DE26D2740F00A1890C /* ViewController.swift in Sources */,
 				CAAFA3EE26D276BF00A1890C /* PrefetchControllerViewController.swift in Sources */,
 				CAAFA3DA26D2740F00A1890C /* AppDelegate.swift in Sources */,
