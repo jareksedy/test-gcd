@@ -10,26 +10,28 @@ import UIKit
 class PrefetchControllerViewController: UIViewController {
     
     @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var dogImage: UIImageView!
+    
     let dataQueue = DataQueue()
-    let maxCount = 10
+    let maxCount = 50
     
     @IBAction func prefetchTap(_ sender: Any) {
-        
-        displayCount()
+
         dataQueue.asyncFillUpTo(maxCount)
         guard let temp = dataQueue.dequeue() else { return }
-        print("NAME: \(temp.name) AGE: \(temp.age) COUNT: \(temp.count)")
+        print("\(temp.message) \(temp.status)")
+        if temp.status == "success" {
+            dogImage.loadImageUsingCache(withUrl: temp.message)
+        }
     }
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
+        dogImage.loadImageUsingCache(withUrl: "https://images.dog.ceo/breeds/puggle/IMG_074816.jpg")
+        
+        dataQueue.label = countLabel
         dataQueue.asyncFillUpTo(maxCount)
-        displayCount()
-    }
-    
-    private func displayCount() {
-        countLabel.text = "Array count: \(dataQueue.count)"
     }
 }

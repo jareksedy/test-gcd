@@ -6,50 +6,53 @@
 //
 
 import Foundation
+import UIKit
 
-class DataItem: Codable {
-    
-    let name: String
-    let age: Int
-    let count: Int
+struct DataItem: Codable {
+    let message: String
+    let status: String
 }
 
 class DataQueue {
     
-    private var dataItems: [DataItem?] = []
+    private var dataItems: [DataItem] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.label?.text = "Count: \(self.count)"
+            }
+        }
+    }
+    
+    lazy var label: UILabel? = nil
     
     var count: Int { self.dataItems.count }
     
     func dequeue() -> DataItem? {
-        
         return count > 0 ? dataItems.removeFirst() : nil
     }
     
     func asyncFillUpTo(_ count: Int) {
-        
-        DispatchQueue.global(qos: .userInteractive).async {
-            
+        DispatchQueue.global(qos: .userInitiated).async {
             while self.dataItems.count < count {
                 self.dataItems.append(self.fetchData())
             }
         }
     }
     
-    private func fetchData() -> DataItem? {
+    private func fetchData() -> DataItem {
         
-        var dataItem: DataItem?
+        var dataItem: DataItem? = nil
+        let url = URL(string: "https://dog.ceo/api/breeds/image/random")!
         
-        let url = URL(string: "https://api.agify.io/?name=Yaroslav")
-        
-        do {
-            let data = try Data(contentsOf: url!)
-            
+        while dataItem == nil {
             do {
-                dataItem = try JSONDecoder().decode(DataItem.self, from: data)
-                
+                let data = try Data(contentsOf: url)
+                do {
+                    dataItem = try JSONDecoder().decode(DataItem.self, from: data)
+                } catch { print(error) }
             } catch { print(error) }
-        } catch { print(error) }
+        }
         
-        return dataItem
+        return dataItem!
     }
 }

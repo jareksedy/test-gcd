@@ -16,26 +16,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count: 48" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oeo-ww-Fev">
-                                <rect key="frame" x="147.5" y="433.5" width="119.5" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="count: ???" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oeo-ww-Fev">
+                                <rect key="frame" x="145" y="433.5" width="124" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqw-Lc-vOp">
-                                <rect key="frame" x="103" y="488" width="208" height="70"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="48"/>
-                                <state key="normal" title="Prefetch"/>
+                                <rect key="frame" x="88" y="502.5" width="238" height="41"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="24"/>
+                                <state key="normal" title="dequeue &amp; prefetch"/>
                                 <connections>
                                     <action selector="prefetchButton:" destination="mOF-Xb-TSI" eventType="touchUpInside" id="GeN-4k-XS6"/>
                                     <action selector="prefetchTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Krm-Er-ngZ"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ef3-Le-sd4">
+                                <rect key="frame" x="0.0" y="44" width="414" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="ONo-fO-v8W"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Oeo-ww-Fev" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="L9k-PZ-nLb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ef3-Le-sd4" secondAttribute="trailing" id="Lia-en-vvw"/>
+                            <constraint firstItem="Ef3-Le-sd4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="TIE-oZ-WdI"/>
+                            <constraint firstItem="Ef3-Le-sd4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZOT-FE-JWJ"/>
+                            <constraint firstItem="Ef3-Le-sd4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="j5q-6h-GSC"/>
                             <constraint firstItem="qqw-Lc-vOp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="75" id="tgY-hK-Ann"/>
                             <constraint firstItem="qqw-Lc-vOp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vu8-m3-Pyw"/>
                             <constraint firstItem="Oeo-ww-Fev" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xrq-EJ-1jm"/>
@@ -43,6 +53,7 @@
                     </view>
                     <connections>
                         <outlet property="countLabel" destination="Oeo-ww-Fev" id="dkM-bl-qx5"/>
+                        <outlet property="dogImage" destination="Ef3-Le-sd4" id="HIF-Sc-EOz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
