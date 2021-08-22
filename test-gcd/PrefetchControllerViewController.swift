@@ -11,19 +11,21 @@ class PrefetchControllerViewController: UIViewController {
     
     @IBOutlet weak var countLabel: UILabel!
     let dataQueue = DataQueue()
+    let maxCount = 10
     
     @IBAction func prefetchTap(_ sender: Any) {
         
         displayCount()
-        dataQueue.asyncFillUpTo(10)
-        _ = dataQueue.dequeue()
+        dataQueue.asyncFillUpTo(maxCount)
+        guard let temp = dataQueue.dequeue() else { return }
+        print("NAME: \(temp.name) AGE: \(temp.age) COUNT: \(temp.count)")
     }
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        dataQueue.asyncFillUpTo(10)
+        dataQueue.asyncFillUpTo(maxCount)
         displayCount()
     }
     

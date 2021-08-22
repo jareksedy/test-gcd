@@ -89,6 +89,8 @@
 			dependencies = (
 			);
 			name = "test-gcd";
+			packageProductDependencies = (
+			);
 			productName = "test-gcd";
 			productReference = CAAFA3D626D2740F00A1890C /* test-gcd.app */;
 			productType = "com.apple.product-type.application";
@@ -116,6 +118,8 @@
 				Base,
 			);
 			mainGroup = CAAFA3CD26D2740F00A1890C;
+			packageReferences = (
+			);
 			productRefGroup = CAAFA3D726D2740F00A1890C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
