@@ -32,7 +32,7 @@ class DataQueue {
         didSet {
             fill()
             DispatchQueue.main.async {
-                self.label?.text = "Queue length: \(self.count)"
+                self.label?.text = "Items in Queue: \(self.count)"
             }
         }
     }

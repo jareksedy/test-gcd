@@ -16,16 +16,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="count: ???" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oeo-ww-Fev">
-                                <rect key="frame" x="145" y="433.5" width="124" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Items in Queue: ???" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oeo-ww-Fev">
+                                <rect key="frame" x="90.5" y="433.5" width="233" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqw-Lc-vOp">
-                                <rect key="frame" x="88" y="502.5" width="238" height="41"/>
+                                <rect key="frame" x="87" y="502.5" width="240" height="41"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="24"/>
-                                <state key="normal" title="dequeue &amp; prefetch"/>
+                                <state key="normal" title="Dequeue &amp; Prefetch"/>
                                 <connections>
                                     <action selector="prefetchButton:" destination="mOF-Xb-TSI" eventType="touchUpInside" id="GeN-4k-XS6"/>
                                     <action selector="prefetchTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Krm-Er-ngZ"/>
