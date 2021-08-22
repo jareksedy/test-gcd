@@ -15,6 +15,14 @@ struct DataItem: Codable {
 
 class DataQueue {
     
+    var label: UILabel?
+    private var count: Int { self.dataItems.count }
+    private var maxCount: Int
+    
+    init(maxCount: Int) {
+        self.maxCount = maxCount
+    }
+    
     private var dataItems: [DataItem] = [] {
         didSet {
             DispatchQueue.main.async {
@@ -23,17 +31,13 @@ class DataQueue {
         }
     }
     
-    lazy var label: UILabel? = nil
-    
-    var count: Int { self.dataItems.count }
-    
     func dequeue() -> DataItem? {
         return count > 0 ? dataItems.removeFirst() : nil
     }
     
-    func asyncFillUpTo(_ count: Int) {
+    func fill() {
         DispatchQueue.global(qos: .userInitiated).async {
-            while self.dataItems.count < count {
+            while self.dataItems.count < self.maxCount {
                 self.dataItems.append(self.fetchData())
             }
         }
@@ -41,7 +45,7 @@ class DataQueue {
     
     private func fetchData() -> DataItem {
         
-        var dataItem: DataItem? = nil
+        var dataItem: DataItem?
         let url = URL(string: "https://dog.ceo/api/breeds/image/random")!
         
         while dataItem == nil {
