@@ -17,27 +17,29 @@ class DataQueue {
     
     var label: UILabel?
     private var count: Int { self.dataItems.count }
-    private var maxCount: Int
+    private var length: Int
     
-    init(maxCount: Int) {
-        self.maxCount = maxCount
-    }
-    
-    private var dataItems: [DataItem] = [] {
-        didSet {
-            DispatchQueue.main.async {
-                self.label?.text = "Count: \(self.count)"
-            }
-        }
+    init(length: Int) {
+        self.length = length
+        fill()
     }
     
     func dequeue() -> DataItem? {
         return count > 0 ? dataItems.removeFirst() : nil
     }
     
-    func fill() {
+    private var dataItems: [DataItem] = [] {
+        didSet {
+            fill()
+            DispatchQueue.main.async {
+                self.label?.text = "Queue length: \(self.count)"
+            }
+        }
+    }
+    
+    private func fill() {
         DispatchQueue.global(qos: .userInitiated).async {
-            while self.dataItems.count < self.maxCount {
+            while self.dataItems.count < self.length {
                 self.dataItems.append(self.fetchData())
             }
         }

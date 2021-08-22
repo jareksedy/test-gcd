@@ -12,10 +12,9 @@ class PrefetchControllerViewController: UIViewController {
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var dogImage: UIImageView!
     
-    let dataQueue = DataQueue(maxCount: 50)
+    let dataQueue = DataQueue(length: 10)
     
     @IBAction func prefetchTap(_ sender: Any) {
-        dataQueue.fill()
         guard let temp = dataQueue.dequeue() else { return }
         //print("\(temp.message) \(temp.status)")
         if temp.status == "success" {
@@ -24,11 +23,8 @@ class PrefetchControllerViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        
         dogImage.loadImage(withUrl: "https://images.dog.ceo/breeds/puggle/IMG_074816.jpg")
         dataQueue.label = countLabel
-        dataQueue.fill()
     }
 }
